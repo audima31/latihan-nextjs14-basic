@@ -1,42 +1,42 @@
+import HeaderComponent from "@/components/Header";
 import CardList from "../components/CardList";
-import Link from "next/link";
-
+import Image from "next/image";
+import CaraouselComponent from "@/components/Carousel";
 const Home = async () => {
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_API_BASE_URL}/top/anime`
   );
-  const dataAnime = await response.json();
-
-  // Memotong array dataAnime
-  const limitData = dataAnime.data.slice(0, 8);
+  const topAnime = await response.json();
+  // Memotong array topAnime, agar muncul datanya hanya 8
+  const topAnime8 = topAnime.data.slice(0, 8);
 
   return (
-    <div className="px-5">
-      <div className="flex justify-between items-center py-3">
-        <h1 className="text-white text-2xl py-3 font-semibold">
-          Paling Popular
-        </h1>
-        <Link
-          href={"/populer"}
-          className="text-white underline hover:text-gray-400 transition-all "
-        >
-          Lihat Semua
-        </Link>
+    <>
+      <div className="">
+        <CaraouselComponent />
+        {/* <Image
+          src="https://placehold.co/600x400.png"
+          alt="..."
+          width={600}
+          height={400}
+        /> */}
       </div>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-8 gap-4">
-        {limitData.map((data: any) => {
-          return (
-            <div key={data.mal_id}>
-              <CardList
-                title={data.title}
-                image={data.images.webp.image_url}
-                id={data.mal_id}
-              />
-            </div>
-          );
-        })}
-      </div>
-    </div>
+      {/* Anime Paling Populer */}
+      <section className="px-5">
+        <HeaderComponent
+          title="Paling Populer"
+          link="/populer"
+          title2="Lihat Semua"
+        />
+        <CardList api={topAnime8} />
+      </section>
+
+      {/* Anime Paling Terbaru */}
+      <section className="px-5 mt-5">
+        <HeaderComponent title="Terbaru" link="/terbaru" title2="Lihat Semua" />
+        <CardList api={topAnime8} />
+      </section>
+    </>
   );
 };
 
