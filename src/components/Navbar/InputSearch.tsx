@@ -11,7 +11,9 @@ const InputSearch = () => {
 
   const handleSearch = (event: any) => {
     const keyword = searchRef.current.value;
-    if (keyword !== "") {
+    if (keyword.trim() == "") {
+      return;
+    } else if (keyword !== "") {
       //agar bisa dienter saat search
       if (event.key === "Enter" || event.type === "click") {
         event.preventDefault();

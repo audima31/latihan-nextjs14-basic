@@ -4,10 +4,10 @@ import Link from "next/link";
 const CardList = (data: any) => {
   return (
     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-8 gap-4 ">
-      {data.api.map((data: any) => {
+      {data.api?.map((data: any) => {
         return (
           <Link
-            href={`/${data.mal_id}`}
+            href={`/anime/${data.mal_id}`}
             className="cursor-pointer  text-white hover:text-[#fd1b44]"
             key={data.mal_id}
           >
