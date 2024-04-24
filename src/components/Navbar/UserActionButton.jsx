@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const UserActionButton = async () => {
   const user = await authUserSession();
-  console.log("Data User: ", user);
+  // console.log("Data User: ", user);
 
   const actionLabel = user ? "Sign Out" : "Sign In";
   const actionURL = user ? "/api/auth/signout" : "/api/auth/signin";

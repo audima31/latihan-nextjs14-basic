@@ -8,7 +8,7 @@ const Navbar = () => {
     <>
       <NavbarEffect />
       <nav
-        className="navbar flex flex-col sm:flex-row items-center sm:items-start sm:justify-between px-5 py-3 z-10"
+        className="navbar flex flex-col sm:flex-row items-center  sm:justify-between px-5 py-3 z-10"
         style={{
           width: "100%",
           position: "fixed",

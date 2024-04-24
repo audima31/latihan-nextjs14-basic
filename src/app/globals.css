@@ -28,3 +28,11 @@ img {
 img:hover {
   scale: 102%;
 }
+
+.borderAnime {
+  transition: transform 0.3s ease-in-out;
+}
+
+.borderAnime:hover {
+  transform: scale(1.015);
+}

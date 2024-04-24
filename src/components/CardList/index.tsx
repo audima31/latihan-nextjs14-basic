@@ -11,7 +11,7 @@ const CardList = (data: any) => {
             className="cursor-pointer  text-white hover:text-[#fd1b44]"
             key={data.mal_id}
           >
-            <div className="shadow-lg  ">
+            <div className="shadow-lg">
               <Image
                 src={data.images.webp.image_url}
                 alt="..."

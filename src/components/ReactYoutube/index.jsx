@@ -13,9 +13,9 @@ const ReactYoutube = ({ youtubeId }) => {
   const option = {
     height: "390",
     width: "640",
-    playerVars: {
-      autoplay: 1,
-    },
+    // playerVars: {
+    //   autoplay: 1,
+    // },
   };
 
   return (

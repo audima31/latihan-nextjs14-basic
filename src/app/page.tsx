@@ -8,6 +8,9 @@ const Home = async () => {
     `${process.env.NEXT_PUBLIC_API_BASE_URL}/top/anime`
   );
   const topAnime = await response.json();
+
+  console.log(topAnime.data);
+
   // Memotong array topAnime, agar muncul datanya hanya 8
   const topAnime8 = topAnime.data.slice(0, 8);
 
@@ -17,17 +20,17 @@ const Home = async () => {
   );
 
   const responseGetRekomendasi2 = await responseGetRekomendasi.json();
-  console.log(responseGetRekomendasi2.data);
+  // console.log(responseGetRekomendasi2.data)
   const responseGetRekomendasi3 = responseGetRekomendasi2.data.flatMap(
     (item: any) => item.entry
   );
-  console.log(responseGetRekomendasi3);
+  // console.log(responseGetRekomendasi3);
 
   // Biar setiap di refresh, datanya rekomendasinya berubah
   function shuffle(data: any, gap: any) {
     const first = Math.floor(Math.random() * (data.length - gap) + 1);
     const last = first + gap;
-    console.log(first, last);
+    // console.log(first, last)
     const dataRekomendasiResuffle = responseGetRekomendasi3.slice(first, last);
 
     return dataRekomendasiResuffle;
