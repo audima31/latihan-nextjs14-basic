@@ -4,10 +4,12 @@ import React, { useState } from "react";
 
 const CollectionButton = (dataImport: any) => {
   const [isCreated, setIsCreated] = useState(false);
+  console.log(dataImport);
 
   const handleCollection = async (event: any) => {
     event.preventDefault();
     console.log(dataImport.anime_image);
+    console.log(dataImport.popularity);
 
     const response = await fetch("/api/post", {
       method: "POST",
@@ -16,6 +18,11 @@ const CollectionButton = (dataImport: any) => {
         user_email: dataImport.user_email,
         anime_image: dataImport.anime_image,
         anime_title: dataImport.anime_title,
+        score: dataImport.score,
+        popularity: dataImport.popularity,
+        year: dataImport.year,
+        synopsis: dataImport.synopsis,
+        background: dataImport.background,
       }),
     });
     const collection = await response.json();
@@ -32,7 +39,7 @@ const CollectionButton = (dataImport: any) => {
       ) : (
         <button
           onClick={handleCollection}
-          className="px-2 py-1 bg-color-accent"
+          className="px-2 py-2 bg-color-accent bg-[#fd1b44] text-white rounded-md hover:bg-[#e61920] transition-all font-bold"
         >
           Add To Collection
         </button>

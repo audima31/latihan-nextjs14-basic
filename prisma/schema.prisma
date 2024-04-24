@@ -18,8 +18,14 @@ model Collection {
   id               Int @id @default(autoincrement())
   anime_mal_id  String
   user_email  String
-  anime_image String
-  anime_title String
+  anime_image String?
+  anime_title String?
+  score       Int?
+  popularity  Int?
+  year        Int?
+  synopsis    String?
+  background  String?
+
 
   @@unique([user_email, anime_mal_id])
   //Peruser bisa memiliki banyak anime_mal_id, tetapi tidak boleh ada anime_mal_id yang sama

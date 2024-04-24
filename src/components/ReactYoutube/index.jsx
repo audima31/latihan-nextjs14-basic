@@ -12,7 +12,7 @@ const ReactYoutube = ({ youtubeId }) => {
 
   const option = {
     height: "390",
-    width: "640",
+    width: "100%",
     // playerVars: {
     //   autoplay: 1,
     // },
@@ -20,7 +20,12 @@ const ReactYoutube = ({ youtubeId }) => {
 
   return (
     <div>
-      {isOpen ? (
+      <YouTube
+        videoId={youtubeId}
+        onReady={(e) => e.target.playVideo()}
+        opts={option}
+      />
+      {/* {isOpen ? (
         <>
           <button onClick={handleCloseButton}>X</button>
           <YouTube
@@ -33,7 +38,7 @@ const ReactYoutube = ({ youtubeId }) => {
         <>
           <button onClick={handleCloseButton}>Tonton Trailler</button>
         </>
-      )}
+      )} */}
     </div>
   );
 };

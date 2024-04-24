@@ -18,10 +18,29 @@ import { NextRequest, NextResponse } from "next/server";
 // }
 
 export const POST = async (request: NextRequest) => {
-  const { anime_mal_id, user_email, anime_image, anime_title } =
-    await request.json();
+  const {
+    anime_mal_id,
+    user_email,
+    anime_image,
+    anime_title,
+    score,
+    popularity,
+    year,
+    synopsis,
+    background,
+  } = await request.json();
 
-  const data = { anime_mal_id, user_email, anime_image, anime_title };
+  const data = {
+    anime_mal_id,
+    user_email,
+    anime_image,
+    anime_title,
+    score,
+    popularity,
+    year,
+    synopsis,
+    background,
+  };
 
   const createCollection = await prisma.collection.create({ data });
 
